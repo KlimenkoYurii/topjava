@@ -52,7 +52,7 @@ public class Meal {
         return dateTime.toLocalTime();
     }
 
-    public boolean isNew() {
+    public boolean isNew() {// если id == null тогда тогда вызвращает true
         return id == null;
     }
 

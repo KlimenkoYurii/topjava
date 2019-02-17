@@ -13,12 +13,12 @@ public class InMemoryMealRepositoryImpl implements MealRepository {
     private AtomicInteger counter = new AtomicInteger(0);
 
     {
-        MealsUtil.MEALS.forEach(this::save);
+        MealsUtil.MEALS.forEach(this::save);  // делаем все еду с id++
     }
 
-    @Override
-    public Meal save(Meal meal) {
-        if (meal.isNew()) {
+    @Override// две функции создание и обновление сущности
+    public Meal save(Meal meal) { // если у meal нет id тогда даем ему даем id++ добавляем в мапку и возвращаем его
+        if (meal.isNew()) { // если id == null тогда тогда вызвращает true
             meal.setId(counter.incrementAndGet());
             repository.put(meal.getId(), meal);
             return meal;
