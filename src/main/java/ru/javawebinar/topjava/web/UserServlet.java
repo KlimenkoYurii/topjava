@@ -11,6 +11,13 @@ import java.io.IOException;
 import static org.slf4j.LoggerFactory.getLogger;
 
 public class UserServlet extends HttpServlet {
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        System.out.println("init11111111");
+    }
+
     private static final Logger log = getLogger(UserServlet.class);
 
     @Override

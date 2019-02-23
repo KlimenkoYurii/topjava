@@ -24,7 +24,7 @@ public class InMemoryMealRepositoryImpl implements MealRepository {
             return meal;
         }
         // treat case: update, but absent in storage
-        return repository.computeIfPresent(meal.getId(), (id, oldMeal) -> meal);
+        return repository.computeIfPresent(meal.getId(), (id, oldMeal) -> meal); // обновляет значение если такое id уже есть
     }
 
     @Override
